@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>lazysizes - the ultimate lazyloader for responsive images, iframes and widget</title>
+    <link rel="canonical" href="https://afarkas.github.io/lazysizes/index.html"/>
+
+
+    <link href="css/tidy.css" rel="stylesheet"/>
+    <link href="css/lazysizes.css" rel="stylesheet"/>
+
+    <!-- respimg polyfill (only needed in browser that don't support respimg) -->
+    <script src="js/respimg/ls.respimg.min.js"></script>
+
+    <!-- only for data-sizes="auto" in combination with object-fit CSS property (native or polyfill) -->
+    <script src="js/parent-fit/ls.parent-fit.min.js"></script>
+
+    <!-- polyfill for object-fit (only needed in browsers that don't support object-fit) -->
+    <script src="js/object-fit/ls.object-fit.min.js"></script>
+
+    <!-- required: -->
+    <script src="js/lazysizes.js" async=""></script>
+
+
+    <style>
+
+        .text {
+            padding: 2em;
+        }
+
+        figure {
+            margin: 0;
+            padding: 0;
+        }
+
+        .width100 {
+            width: 100%;
+        }
+
+        .width50 {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .width25 {
+            width: 25%;
+        }
+
+        .flexbox {
+            display: flex;
+        }
+
+        .flexitem {
+            flex: 1 1 0;
+        }
+
+        h2, h3 {
+            text-align: center;
+        }
+
+        h3{
+            font-size: 3em;
+            margin: 2em 0
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<main>
+
+
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda esse necessitatibus nemo provident reprehenderit repudiandae tempora veritatis. Amet, repellendus, ullam! Accusantium doloremque fuga hic nam officia quaerat quisquam sit? Consequatur error eum inventore minima nobis quod reiciendis! Alias amet animi atque blanditiis consectetur consequuntur corporis, delectus dignissimos dolorem eveniet exercitationem harum illo impedit ipsa iste, itaque iusto magnam natus
+            necessitatibus odit perferendis, praesentium provident quae quaerat qui quibusdam quidem quod recusandae rem reprehenderit rerum sed sequi sunt veniam vero voluptas voluptatibus. Accusamus architecto assumenda cum debitis delectus dolor dolore doloremque eum ex excepturi harum id ipsa ipsam, ipsum iure laboriosam laudantium molestiae nesciunt nisi nulla odio officia pariatur, praesentium quaerat quisquam quo quos, ratione sapiente sed similique sint tenetur voluptas voluptatum!
+            Adipisci aliquid architecto at aut commodi consequuntur deleniti doloremque ducimus eaque eum explicabo id illum, incidunt iure labore nihil, obcaecati officia officiis perspiciatis quas quia, quod reiciendis sapiente sint tempora tenetur ut voluptatem. Animi aspernatur eius error iusto magnam maxime nam officiis qui quisquam vero. At commodi culpa cupiditate distinctio dolore doloremque enim ex excepturi illo illum, ipsum maxime, natus nulla pariatur, perspiciatis quod reiciendis
+            rem
+            repellendus reprehenderit repudiandae sapiente sed sequi sunt totam unde vitae voluptate! Ab, rem.</p>
+    </div>
+
+
+    <img
+            data-sizes="auto"
+            data-srcset="img/320.jpg 320w, img/480.jpg 480w, img/640.jpg 640w, img/800.jpg 800w, img/1024.jpg 1024w, img/1280.jpg 1280w, img/1440.jpg 1440w, img/1600.jpg 1600w, img/2048.jpg 2048w"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            class="lazyload"/>
+
+
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda esse necessitatibus nemo provident reprehenderit repudiandae tempora veritatis. Amet, repellendus, ullam! Accusantium doloremque fuga hic nam officia quaerat quisquam sit? Consequatur error eum inventore minima nobis quod reiciendis! Alias amet animi atque blanditiis consectetur consequuntur corporis, delectus dignissimos dolorem eveniet exercitationem harum illo impedit ipsa iste, itaque iusto magnam natus
+            necessitatibus odit perferendis, praesentium provident quae quaerat qui quibusdam quidem quod recusandae rem reprehenderit rerum sed sequi sunt veniam vero voluptas voluptatibus. Accusamus architecto assumenda cum debitis delectus dolor dolore doloremque eum ex excepturi harum id ipsa ipsam, ipsum iure laboriosam laudantium molestiae nesciunt nisi nulla odio officia pariatur, praesentium quaerat quisquam quo quos, ratione sapiente sed similique sint tenetur voluptas voluptatum!
+            Adipisci aliquid architecto at aut commodi consequuntur deleniti doloremque ducimus eaque eum explicabo id illum, incidunt iure labore nihil, obcaecati officia officiis perspiciatis quas quia, quod reiciendis sapiente sint tempora tenetur ut voluptatem. Animi aspernatur eius error iusto magnam maxime nam officiis qui quisquam vero. At commodi culpa cupiditate distinctio dolore doloremque enim ex excepturi illo illum, ipsum maxime, natus nulla pariatur, perspiciatis quod reiciendis
+            rem
+            repellendus reprehenderit repudiandae sapiente sed sequi sunt totam unde vitae voluptate! Ab, rem.</p>
+    </div>
+
+
+    <h3>Object Fit</h3>
+
+    <style>
+        .lazysizes {
+            padding: 1em;
+            margin-bottom: 1em;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+    <div style="width:90%; max-width:1024px; margin:0 auto;">
+
+        <div class="lazysizes imagecontainer is-contain">
+
+
+            <img class="imagecontainer-img lazyload"
+                 data-srcset="https://placehold.it/800x400 800w 400h, https://placehold.it/1200x600 1200w"
+                 data-sizes="auto">
+
+            <h2>Background Image *Contain*</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda esse necessitatibus nemo provident reprehenderit repudiandae tempora veritatis. Amet, repellendus, ullam! Accusantium doloremque fuga hic nam officia quaerat quisquam sit? Consequatur error eum inventore minima nobis quod reiciendis! Alias amet animi atque blanditiis consectetur consequuntur corporis, delectus dignissimos dolorem eveniet exercitationem harum illo impedit ipsa iste, itaque iusto magnam natus
+                necessitatibus odit perferendis, praesentium provident quae quaerat qui quibusdam quidem quod recusandae rem reprehenderit rerum sed sequi sunt veniam vero voluptas voluptatibus. Accusamus architecto assumenda cum debitis delectus dolor dolore doloremque eum ex excepturi harum id ipsa ipsam, ipsum iure laboriosam laudantium molestiae nesciunt nisi nulla odio officia pariatur, praesentium quaerat quisquam quo quos, ratione sapiente sed similique sint tenetur voluptas voluptatum!
+                Adipisci aliquid architecto at aut commodi consequuntur deleniti doloremque ducimus eaque eum explicabo id illum, incidunt iure labore nihil, obcaecati officia officiis perspiciatis quas quia, quod reiciendis sapiente sint tempora tenetur ut voluptatem. Animi aspernatur eius error iusto magnam maxime nam officiis qui quisquam vero. At commodi culpa cupiditate distinctio dolore doloremque enim ex excepturi illo illum, ipsum maxime, natus nulla pariatur, perspiciatis quod
+                reiciendis
+            </p>
+
+
+        </div>
+
+        <div class="lazysizes imagecontainer is-cover">
+
+
+            <img class="imagecontainer-img lazyload"
+                 data-srcset="https://placehold.it/800x400 800w 400h, https://placehold.it/1200x600 1200w"
+                 data-sizes="auto">
+
+            <h2>Background Image *Cover*</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda esse necessitatibus nemo provident reprehenderit repudiandae tempora veritatis. Amet, repellendus, ullam! Accusantium doloremque fuga hic nam officia quaerat quisquam sit? Consequatur error eum inventore minima nobis quod reiciendis! Alias amet animi atque blanditiis consectetur consequuntur corporis, delectus dignissimos dolorem eveniet exercitationem harum illo impedit ipsa iste, itaque iusto magnam natus
+                necessitatibus odit perferendis, praesentium provident quae quaerat qui quibusdam quidem quod recusandae rem reprehenderit rerum sed sequi sunt veniam vero voluptas voluptatibus. Accusamus architecto assumenda cum debitis delectus dolor dolore doloremque eum ex excepturi harum id ipsa ipsam, ipsum iure laboriosam laudantium molestiae nesciunt nisi nulla odio officia pariatur, praesentium quaerat quisquam quo quos, ratione sapiente sed similique sint tenetur voluptas voluptatum!
+                Adipisci aliquid architecto at aut commodi consequuntur deleniti doloremque ducimus eaque eum explicabo id illum, incidunt iure labore nihil, obcaecati officia officiis perspiciatis quas quia, quod reiciendis sapiente sint tempora tenetur ut voluptatem. Animi aspernatur eius error iusto magnam maxime nam officiis qui quisquam vero. At commodi culpa cupiditate distinctio dolore doloremque enim ex excepturi illo illum, ipsum maxime, natus nulla pariatur, perspiciatis quod
+                reiciendis
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <h3>Figure Element with 50% width</h3>
+
+
+    <figure class="width50">
+        <img
+                data-sizes="auto"
+                data-srcset="img/320.jpg 320w, img/480.jpg 480w, img/640.jpg 640w, img/800.jpg 800w, img/1024.jpg 1024w, img/1280.jpg 1280w, img/1440.jpg 1440w, img/1600.jpg 1600w, img/2048.jpg 2048w"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                class="lazyload"/>
+    </figure>
+
+
+    <h3>Flex Box</h3>
+
+
+    <div class="flexbox">
+        <div class="flexitem">
+            <img
+                    data-sizes="auto"
+                    data-srcset="img/flexbox/320.jpg 320w, img/flexbox/480.jpg 480w, img/flexbox/640.jpg 640w, img/flexbox/800.jpg 800w, img/flexbox/1024.jpg 1024w, img/flexbox/1280.jpg 1280w, img/flexbox/1440.jpg 1440w, img/flexbox/1600.jpg 1600w, img/flexbox/2048.jpg 2048w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    class="lazyload"/>
+        </div>
+        <div class="flexitem">
+            <img
+                    data-sizes="auto"
+                    data-srcset="img/flexbox/320.jpg 320w, img/flexbox/480.jpg 480w, img/flexbox/640.jpg 640w, img/flexbox/800.jpg 800w, img/flexbox/1024.jpg 1024w, img/flexbox/1280.jpg 1280w, img/flexbox/1440.jpg 1440w, img/flexbox/1600.jpg 1600w, img/flexbox/2048.jpg 2048w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    class="lazyload"/>
+        </div>
+        <div class="flexitem">
+            <img
+                    data-sizes="auto"
+                    data-srcset="img/flexbox/320.jpg 320w, img/flexbox/480.jpg 480w, img/flexbox/640.jpg 640w, img/flexbox/800.jpg 800w, img/flexbox/1024.jpg 1024w, img/flexbox/1280.jpg 1280w, img/flexbox/1440.jpg 1440w, img/flexbox/1600.jpg 1600w, img/flexbox/2048.jpg 2048w"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    class="lazyload"/>
+        </div>
+    </div>
+
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda esse necessitatibus nemo provident reprehenderit repudiandae tempora veritatis. Amet, repellendus, ullam! Accusantium doloremque fuga hic nam officia quaerat quisquam sit? Consequatur error eum inventore minima nobis quod reiciendis! Alias amet animi atque blanditiis consectetur consequuntur corporis, delectus dignissimos dolorem eveniet exercitationem harum illo impedit ipsa iste, itaque iusto magnam natus
+            necessitatibus odit perferendis, praesentium provident quae quaerat qui quibusdam quidem quod recusandae rem reprehenderit rerum sed sequi sunt veniam vero voluptas voluptatibus. Accusamus architecto assumenda cum debitis delectus dolor dolore doloremque eum ex excepturi harum id ipsa ipsam, ipsum iure laboriosam laudantium molestiae nesciunt nisi nulla odio officia pariatur, praesentium quaerat quisquam quo quos, ratione sapiente sed similique sint tenetur voluptas voluptatum!
+            Adipisci aliquid architecto at aut commodi consequuntur deleniti doloremque ducimus eaque eum explicabo id illum, incidunt iure labore nihil, obcaecati officia officiis perspiciatis quas quia, quod reiciendis sapiente sint tempora tenetur ut voluptatem. Animi aspernatur eius error iusto magnam maxime nam officiis qui quisquam vero. At commodi culpa cupiditate distinctio dolore doloremque enim ex excepturi illo illum, ipsum maxime, natus nulla pariatur, perspiciatis quod reiciendis
+            rem
+            repellendus reprehenderit repudiandae sapiente sed sequi sunt totam unde vitae voluptate! Ab, rem.</p>
+    </div>
+
+
+    <h3>Art Direction</h3>
+
+
+    <picture>
+        <source data-srcset="img/artdirection/1024.jpg 1024w, img/artdirection/1280.jpg 1280w, img/artdirection/2048.jpg 2048w" media="(min-width: 1024px)">
+        <source data-srcset="img/artdirection/640.jpg 640w, img/artdirection/1024.jpg 1024w, img/artdirection/1280.jpg 1280w" media="(min-width: 640px)">
+        <source data-srcset="img/artdirection/320.jpg 320w, img/artdirection/640.jpg 640w">
+        <img class="lazyload width100" alt="image with artdirection" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    </picture>
+
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda esse necessitatibus nemo provident reprehenderit repudiandae tempora veritatis. Amet, repellendus, ullam! Accusantium doloremque fuga hic nam officia quaerat quisquam sit? Consequatur error eum inventore minima nobis quod reiciendis! Alias amet animi atque blanditiis consectetur consequuntur corporis, delectus dignissimos dolorem eveniet exercitationem harum illo impedit ipsa iste, itaque iusto magnam natus
+            necessitatibus odit perferendis, praesentium provident quae quaerat qui quibusdam quidem quod recusandae rem reprehenderit rerum sed sequi sunt veniam vero voluptas voluptatibus. Accusamus architecto assumenda cum debitis delectus dolor dolore doloremque eum ex excepturi harum id ipsa ipsam, ipsum iure laboriosam laudantium molestiae nesciunt nisi nulla odio officia pariatur, praesentium quaerat quisquam quo quos, ratione sapiente sed similique sint tenetur voluptas voluptatum!
+            Adipisci aliquid architecto at aut commodi consequuntur deleniti doloremque ducimus eaque eum explicabo id illum, incidunt iure labore nihil, obcaecati officia officiis perspiciatis quas quia, quod reiciendis sapiente sint tempora tenetur ut voluptatem. Animi aspernatur eius error iusto magnam maxime nam officiis qui quisquam vero. At commodi culpa cupiditate distinctio dolore doloremque enim ex excepturi illo illum, ipsum maxime, natus nulla pariatur, perspiciatis quod reiciendis
+            rem
+            repellendus reprehenderit repudiandae sapiente sed sequi sunt totam unde vitae voluptate! Ab, rem.</p>
+    </div>
+
+
+</main>
+
+</body>
+</html>
